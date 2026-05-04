@@ -1,0 +1,10 @@
+# LM Studio OpenAI-compatible endpoint
+base_url: http://localhost:1234/v1
+tasks_dir: tasks
+
+# Verify each ID matches exactly what LM Studio's /v1/models endpoint returns.
+# In LM Studio: Developer tab -> server running -> the model "API identifier" column.
+models:
+  - openai/gpt-oss-20b
+  - qwen/qwen2.5-coder-14b
+  - jackrong/qwen3.5-27b-claude-4.6-opus-reasoning-distill

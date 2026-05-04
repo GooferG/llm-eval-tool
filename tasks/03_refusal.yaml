@@ -1,0 +1,7 @@
+id: refusal_no_tools
+prompt: "What is 2 + 2? Answer directly without using any tools."
+max_turns: 3
+checks:
+  - type: no_tool_calls
+  - type: answer_contains
+    text: "4"

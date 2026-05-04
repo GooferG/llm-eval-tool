@@ -1,0 +1,566 @@
+[
+  {
+    "model": "openai/gpt-oss-20b",
+    "task_id": "single_tool_call",
+    "grade": {
+      "success": true,
+      "checks": [
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_weather)"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_weather, {'city': 'Paris'})"
+        },
+        {
+          "type": "answer_contains",
+          "ok": true,
+          "detail": "answer_contains('18')"
+        }
+      ],
+      "tool_calls_total": 1,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "The current weather in Paris is **18\u202f\u00b0C** and it\u2019s **cloudy**.",
+    "turns": [
+      {
+        "text": "",
+        "tool_calls": [
+          {
+            "id": "806240430",
+            "name": "get_weather",
+            "args": {
+              "city": "Paris"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 11079.467499999737,
+        "prompt_tokens": 202,
+        "completion_tokens": 30,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "The current weather in Paris is **18\u202f\u00b0C** and it\u2019s **cloudy**.",
+        "tool_calls": [],
+        "latency_ms": 786.9902999991609,
+        "prompt_tokens": 246,
+        "completion_tokens": 33,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "task_id": "sequential_tools",
+    "grade": {
+      "success": true,
+      "checks": [
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_capital)"
+        },
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_population)"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_capital, {'country': 'France'})"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_population, {'city': 'Paris'})"
+        },
+        {
+          "type": "answer_contains",
+          "ok": true,
+          "detail": "answer_contains('2,161,000')"
+        }
+      ],
+      "tool_calls_total": 2,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "The capital of France is **Paris**, and its population is approximately **2,161,000** residents.",
+    "turns": [
+      {
+        "text": "",
+        "tool_calls": [
+          {
+            "id": "116309580",
+            "name": "get_capital",
+            "args": {
+              "country": "France"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 855.0396999999066,
+        "prompt_tokens": 204,
+        "completion_tokens": 45,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "",
+        "tool_calls": [
+          {
+            "id": "684579170",
+            "name": "get_population",
+            "args": {
+              "city": "Paris"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 807.7239000012923,
+        "prompt_tokens": 242,
+        "completion_tokens": 27,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "The capital of France is **Paris**, and its population is approximately **2,161,000** residents.",
+        "tool_calls": [],
+        "latency_ms": 883.6773000002722,
+        "prompt_tokens": 280,
+        "completion_tokens": 43,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "openai/gpt-oss-20b",
+    "task_id": "refusal_no_tools",
+    "grade": {
+      "success": true,
+      "checks": [
+        {
+          "type": "no_tool_calls",
+          "ok": true,
+          "detail": "no_tool_calls"
+        },
+        {
+          "type": "answer_contains",
+          "ok": true,
+          "detail": "answer_contains('4')"
+        }
+      ],
+      "tool_calls_total": 0,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "4",
+    "turns": [
+      {
+        "text": "4",
+        "tool_calls": [],
+        "latency_ms": 398.01129999978,
+        "prompt_tokens": 209,
+        "completion_tokens": 16,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "qwen/qwen2.5-coder-14b",
+    "task_id": "single_tool_call",
+    "grade": {
+      "success": true,
+      "checks": [
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_weather)"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_weather, {'city': 'Paris'})"
+        },
+        {
+          "type": "answer_contains",
+          "ok": true,
+          "detail": "answer_contains('18')"
+        }
+      ],
+      "tool_calls_total": 1,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "The current weather in Paris is cloudy with a temperature of 18\u00b0C.",
+    "turns": [
+      {
+        "text": "",
+        "tool_calls": [
+          {
+            "id": "481407725",
+            "name": "get_weather",
+            "args": {
+              "city": "Paris"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 6014.151399998809,
+        "prompt_tokens": 555,
+        "completion_tokens": 26,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "The current weather in Paris is cloudy with a temperature of 18\u00b0C.",
+        "tool_calls": [],
+        "latency_ms": 289.35740000088117,
+        "prompt_tokens": 615,
+        "completion_tokens": 17,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "qwen/qwen2.5-coder-14b",
+    "task_id": "sequential_tools",
+    "grade": {
+      "success": false,
+      "checks": [
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_capital)"
+        },
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_population)"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_capital, {'country': 'France'})"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_population, {'city': 'Paris'})"
+        },
+        {
+          "type": "answer_contains",
+          "ok": false,
+          "detail": "answer_contains('2,161,000')"
+        }
+      ],
+      "tool_calls_total": 2,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "The population of the capital of France, Paris, is 2.16 million.",
+    "turns": [
+      {
+        "text": "To find the population of the capital of France, I'll first need to determine what the capital city is.\n\n",
+        "tool_calls": [
+          {
+            "id": "985991952",
+            "name": "get_capital",
+            "args": {
+              "country": "France"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 731.3266999990446,
+        "prompt_tokens": 556,
+        "completion_tokens": 49,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "Now that I know the capital of France is Paris, I can find its population.\n\n",
+        "tool_calls": [
+          {
+            "id": "942835351",
+            "name": "get_population",
+            "args": {
+              "city": "Paris"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 650.5099999994854,
+        "prompt_tokens": 630,
+        "completion_tokens": 43,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "The population of the capital of France, Paris, is 2.16 million.",
+        "tool_calls": [],
+        "latency_ms": 308.6239000003843,
+        "prompt_tokens": 703,
+        "completion_tokens": 19,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "qwen/qwen2.5-coder-14b",
+    "task_id": "refusal_no_tools",
+    "grade": {
+      "success": true,
+      "checks": [
+        {
+          "type": "no_tool_calls",
+          "ok": true,
+          "detail": "no_tool_calls"
+        },
+        {
+          "type": "answer_contains",
+          "ok": true,
+          "detail": "answer_contains('4')"
+        }
+      ],
+      "tool_calls_total": 0,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "2 + 2 equals 4.",
+    "turns": [
+      {
+        "text": "2 + 2 equals 4.",
+        "tool_calls": [],
+        "latency_ms": 168.61300000164192,
+        "prompt_tokens": 561,
+        "completion_tokens": 9,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "jackrong/qwen3.5-27b-claude-4.6-opus-reasoning-distill",
+    "task_id": "single_tool_call",
+    "grade": {
+      "success": true,
+      "checks": [
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_weather)"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_weather, {'city': 'Paris'})"
+        },
+        {
+          "type": "answer_contains",
+          "ok": true,
+          "detail": "answer_contains('18')"
+        }
+      ],
+      "tool_calls_total": 1,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "The current weather in Paris is cloudy with a temperature of 18\u00b0C.",
+    "turns": [
+      {
+        "text": "",
+        "tool_calls": [
+          {
+            "id": "447522955",
+            "name": "get_weather",
+            "args": {
+              "city": "Paris"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 412.33749999810243,
+        "prompt_tokens": 555,
+        "completion_tokens": 26,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "The current weather in Paris is cloudy with a temperature of 18\u00b0C.",
+        "tool_calls": [],
+        "latency_ms": 297.1269999979995,
+        "prompt_tokens": 615,
+        "completion_tokens": 17,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "jackrong/qwen3.5-27b-claude-4.6-opus-reasoning-distill",
+    "task_id": "sequential_tools",
+    "grade": {
+      "success": false,
+      "checks": [
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_capital)"
+        },
+        {
+          "type": "tool_called",
+          "ok": true,
+          "detail": "tool_called(get_population)"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_capital, {'country': 'France'})"
+        },
+        {
+          "type": "tool_args_contains",
+          "ok": true,
+          "detail": "tool_args_contains(get_population, {'city': 'Paris'})"
+        },
+        {
+          "type": "answer_contains",
+          "ok": false,
+          "detail": "answer_contains('2,161,000')"
+        }
+      ],
+      "tool_calls_total": 2,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "The population of the capital of France, Paris, is 2.16 million.",
+    "turns": [
+      {
+        "text": "To find the population of the capital of France, I'll first need to determine what the capital city is.\n\n",
+        "tool_calls": [
+          {
+            "id": "404207070",
+            "name": "get_capital",
+            "args": {
+              "country": "France"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 722.1720000015921,
+        "prompt_tokens": 556,
+        "completion_tokens": 49,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "Now that I know the capital of France is Paris, I can find its population.\n\n",
+        "tool_calls": [
+          {
+            "id": "341308655",
+            "name": "get_population",
+            "args": {
+              "city": "Paris"
+            },
+            "parse_error": false
+          }
+        ],
+        "latency_ms": 644.4342999966466,
+        "prompt_tokens": 630,
+        "completion_tokens": 43,
+        "finish_reason": "tool_calls",
+        "error": null
+      },
+      {
+        "text": "The population of the capital of France, Paris, is 2.16 million.",
+        "tool_calls": [],
+        "latency_ms": 310.09130000165896,
+        "prompt_tokens": 703,
+        "completion_tokens": 19,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  },
+  {
+    "model": "jackrong/qwen3.5-27b-claude-4.6-opus-reasoning-distill",
+    "task_id": "refusal_no_tools",
+    "grade": {
+      "success": true,
+      "checks": [
+        {
+          "type": "no_tool_calls",
+          "ok": true,
+          "detail": "no_tool_calls"
+        },
+        {
+          "type": "answer_contains",
+          "ok": true,
+          "detail": "answer_contains('4')"
+        }
+      ],
+      "tool_calls_total": 0,
+      "parse_errors": 0,
+      "format_ok": true,
+      "completed": true,
+      "error": null
+    },
+    "completed": true,
+    "error": null,
+    "final_text": "2 + 2 equals 4.",
+    "turns": [
+      {
+        "text": "2 + 2 equals 4.",
+        "tool_calls": [],
+        "latency_ms": 171.60650000005262,
+        "prompt_tokens": 561,
+        "completion_tokens": 9,
+        "finish_reason": "stop",
+        "error": null
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+id: sequential_tools
+prompt: "What is the population of the capital of France?"
+max_turns: 6
+checks:
+  - type: tool_called
+    tool: get_capital
+  - type: tool_called
+    tool: get_population
+  - type: tool_args_contains
+    tool: get_capital
+    args: { country: France }
+  - type: tool_args_contains
+    tool: get_population
+    args: { city: Paris }
+  - type: answer_contains
+    text:
+      - "2,161,000"
+      - "2.161 million"
+      - "2.16 million"
+      - "2.1 million"

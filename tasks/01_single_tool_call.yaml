@@ -1,0 +1,11 @@
+id: single_tool_call
+prompt: "What's the weather in Paris right now?"
+max_turns: 4
+checks:
+  - type: tool_called
+    tool: get_weather
+  - type: tool_args_contains
+    tool: get_weather
+    args: { city: Paris }
+  - type: answer_contains
+    text: "18"
